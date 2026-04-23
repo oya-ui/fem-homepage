@@ -1,0 +1,102 @@
+---
+const acronyms = [
+  {
+    letter: 'F',
+    full: 'Formula',
+    sub: 'Entertainment / Free',
+  },
+  {
+    letter: 'E',
+    full: 'Entertainment',
+    sub: 'Entry',
+  },
+  {
+    letter: 'M',
+    full: 'Manufacturer',
+    sub: 'Many mind',
+  },
+];
+
+const meanings = [
+  {
+    title: 'Formula Entertainment Manufacturer',
+    desc: '常に面白いフォーミュラカーを生み出し続けること',
+  },
+  {
+    title: 'Free Entry Many mind',
+    desc: '数多くの仲間たちが自由に活動を行うことができること',
+  },
+];
+---
+
+<section id="about" class="py-24 sm:py-32 bg-fem-dark">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- Section header -->
+    <div class="mb-16">
+      <p class="text-fem-red text-xs font-bold tracking-[0.3em] uppercase mb-3">About</p>
+      <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">チームについて</h2>
+      <div class="w-12 h-0.5 bg-fem-red mt-4"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+      <!-- Left: Description -->
+      <div class="space-y-6">
+        <p class="text-white/70 text-base sm:text-lg leading-relaxed">
+          名古屋大学フォーミュラチームFEMは学生フォーミュラ日本大会に参戦し、<strong class="text-white font-semibold">全競技1位を目標</strong>として活動しているチームです。
+        </p>
+        <p class="text-white/70 text-base leading-relaxed">
+          2003年11月に発足し、2014年の第12回大会で悲願の<strong class="text-white font-semibold">総合優勝</strong>を獲得しました。当初はエンジンを用いた車両を製作していましたが、より速いマシンを目指し2017年の第15回大会より<strong class="text-white font-semibold">電気自動車（EV）</strong>で参戦しています。
+        </p>
+        <p class="text-white/70 text-base leading-relaxed">
+          EVクラスでは参戦初年度の2017年より3連覇を達成、直近の2023年から2025年でも<strong class="text-fem-red font-semibold">EVクラス1位</strong>となり<strong class="text-fem-red font-semibold">2度目の3連覇</strong>を達成しました。
+        </p>
+
+        <!-- Members badge -->
+        <div class="flex items-center gap-4 pt-4">
+          <div class="bg-fem-gray border border-white/10 rounded-lg px-6 py-4">
+            <div class="text-3xl font-black text-white">約50名</div>
+            <div class="text-white/40 text-sm mt-0.5">B1〜M2 が在籍</div>
+          </div>
+          <div class="bg-fem-gray border border-white/10 rounded-lg px-6 py-4">
+            <div class="text-3xl font-black text-white">名大</div>
+            <div class="text-white/40 text-sm mt-0.5">名古屋大学</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: FEM meaning -->
+      <div class="space-y-6">
+        <h3 class="text-white/40 text-xs font-bold tracking-[0.3em] uppercase">FEM の由来</h3>
+
+        <!-- Acronym letters -->
+        <div class="flex gap-4">
+          {acronyms.map((item) => (
+            <div class="flex-1 bg-fem-gray border border-white/10 rounded-lg p-4 text-center">
+              <div class="text-4xl font-black text-fem-red">{item.letter}</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Meaning cards -->
+        <div class="space-y-3">
+          {meanings.map((item, i) => (
+            <div class="bg-fem-gray border border-white/10 rounded-lg p-5 flex gap-4 items-start">
+              <div class="w-6 h-6 rounded-full bg-fem-red/20 border border-fem-red/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="text-fem-red text-xs font-black">{i + 1}</span>
+              </div>
+              <div>
+                <div class="text-white font-semibold text-sm mb-1">{item.title}</div>
+                <div class="text-white/50 text-sm leading-relaxed">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-white/30 text-xs leading-relaxed">
+          これらの頭文字を取ったものが「FEM」です。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

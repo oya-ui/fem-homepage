@@ -1,0 +1,98 @@
+---
+const activities = [
+  {
+    number: '01',
+    title: '学生フォーミュラ日本大会',
+    subtitle: '国内最大級のモノづくり競技会',
+    desc: '毎年夏に開催される学生フォーミュラ日本大会に参戦。国内外から集まる約80チームの頂点を目指し、自分たちがゼロから作り上げたマシンで世界と戦う熱い夏を経験できます。',
+    tags: ['競技会', '夏開催', '約80チーム参加'],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l1-4h10l1 4h2M6 13l1-6h8l1 6M9 17v2m6-2v2"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="16.5" cy="18.5" r="1.5"/></svg>`,
+  },
+  {
+    number: '02',
+    title: '究極のモノづくり',
+    subtitle: '設計から製作まで自前で',
+    desc: 'シャシーやパワートレインの2部門に分かれ、設計から製作まで自前で行います。カーボン成形や電子回路、高度なシミュレーションなど、技術の最前線を学べます。',
+    tags: ['シャシー部門', 'パワートレイン部門', 'カーボン成形', '電子回路'],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V4m0 2a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m-6 8a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m0 4v2m0-6V4"/></svg>`,
+  },
+  {
+    number: '03',
+    title: '広報・渉外活動',
+    subtitle: '企業スポンサーとの深い接点',
+    desc: '活動を支えるのは企業スポンサー様からの支援です。ものづくり企業と深く接することで、学生のうちから自動車産業やサプライチェーンへの深い理解が得られます。',
+    tags: ['スポンサー獲得', '産業理解', '渉外'],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0z"/></svg>`,
+  },
+];
+---
+
+<section id="activities" class="py-24 sm:py-32 bg-fem-dark">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- Section header -->
+    <div class="mb-16">
+      <p class="text-fem-red text-xs font-bold tracking-[0.3em] uppercase mb-3">Activities</p>
+      <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">活動内容</h2>
+      <div class="w-12 h-0.5 bg-fem-red mt-4"></div>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {activities.map((activity) => (
+        <div class="bg-fem-gray border border-white/10 rounded-lg p-6 sm:p-8 flex flex-col gap-5 hover:border-fem-red/30 transition-colors group">
+          <!-- Number + Icon -->
+          <div class="flex items-start justify-between">
+            <span class="text-5xl font-black text-white/5 group-hover:text-white/10 transition-colors leading-none tabular-nums">
+              {activity.number}
+            </span>
+            <div class="w-10 h-10 text-fem-red opacity-70 group-hover:opacity-100 transition-opacity" set:html={activity.icon} />
+          </div>
+
+          <!-- Title -->
+          <div>
+            <h3 class="text-white font-bold text-lg leading-snug mb-1">{activity.title}</h3>
+            <p class="text-fem-red text-xs font-medium tracking-wider">{activity.subtitle}</p>
+          </div>
+
+          <!-- Description -->
+          <p class="text-white/50 text-sm leading-relaxed flex-1">{activity.desc}</p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            {activity.tags.map((tag) => (
+              <span class="text-xs text-white/30 border border-white/10 rounded px-2 py-0.5">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Join CTA -->
+    <div class="mt-16 bg-fem-gray border border-white/10 rounded-lg p-8 sm:p-12 text-center">
+      <h3 class="text-white text-2xl sm:text-3xl font-black mb-3">一緒に走りませんか</h3>
+      <p class="text-white/50 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+        B1〜M2まで、専攻・経験不問で募集しています。<br class="hidden sm:block" />
+        まずは気軽にLINEやXでお声がけください。
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="https://lin.ee/94AItlm"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary rounded-none px-8 text-sm font-bold tracking-widest uppercase border-0 bg-fem-red hover:bg-red-700 text-white min-w-[180px]"
+        >
+          LINE で問い合わせ
+        </a>
+        <a
+          href="https://twitter.com/nagoyauniv_fem"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline rounded-none px-8 text-sm font-bold tracking-widest uppercase border-white/20 text-white/60 hover:bg-white hover:text-black hover:border-white min-w-[180px]"
+        >
+          X をフォロー
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
