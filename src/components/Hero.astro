@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import bannerImg from '../assets/images/banner.jpg';
 ---
 
 <section
@@ -7,9 +9,15 @@
 >
   <!-- Banner background image -->
   <div class="absolute inset-0">
-    <img
-      src="images/banner.jpg"
+    <Image
+      src={bannerImg}
       alt="FEM Formula Car"
+      widths={[640, 960, 1280, 1920]}
+      sizes="100vw"
+      quality={78}
+      format="webp"
+      loading="eager"
+      fetchpriority="high"
       class="w-full h-full object-cover object-center"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-fem-dark"></div>

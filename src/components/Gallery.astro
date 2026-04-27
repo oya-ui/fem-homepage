@@ -1,11 +1,19 @@
 ---
+import { Image } from 'astro:assets';
+import photo1 from '../assets/images/photo-1.jpg';
+import photo2 from '../assets/images/photo-2.jpg';
+import photo3 from '../assets/images/photo-3.jpg';
+import photo4 from '../assets/images/photo-4.jpg';
+import photo5 from '../assets/images/photo-5.jpg';
+import photo6 from '../assets/images/photo-6.png';
+
 const images = [
-  { src: 'images/photo-1.jpg', alt: 'FEMマシン', wide: true },
-  { src: 'images/photo-2.jpg', alt: 'レース写真', wide: false },
-  { src: 'images/photo-3.jpg', alt: '大会当日', wide: false },
-  { src: 'images/photo-4.jpg', alt: 'チーム活動', wide: false },
-  { src: 'images/photo-5.jpg', alt: 'マシン詳細', wide: false },
-  { src: 'images/photo-6.png', alt: '活動風景', wide: true },
+  { src: photo1, alt: 'FEMマシン', wide: true },
+  { src: photo2, alt: 'レース写真', wide: false },
+  { src: photo3, alt: '大会当日', wide: false },
+  { src: photo4, alt: 'チーム活動', wide: false },
+  { src: photo5, alt: 'マシン詳細', wide: false },
+  { src: photo6, alt: '活動風景', wide: true },
 ];
 ---
 
@@ -25,11 +33,15 @@ const images = [
         <div
           class={`relative overflow-hidden rounded-lg group cursor-pointer bg-fem-dark ${image.wide ? 'col-span-2' : ''}`}
         >
-          <img
+          <Image
             src={image.src}
             alt={image.alt}
-            class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${image.wide ? 'aspect-video' : 'aspect-square'}`}
+            widths={[320, 480, 640, 800, 1200]}
+            sizes="(min-width: 768px) 33vw, 50vw"
+            quality={72}
+            format="webp"
             loading="lazy"
+            class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${image.wide ? 'aspect-video' : 'aspect-square'}`}
           />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
         </div>
@@ -38,7 +50,7 @@ const images = [
 
     <!-- FEM Logo -->
     <div class="mt-12 flex justify-center">
-      <img src="images/fem-logo.png" alt="FEM ロゴ" class="h-16 opacity-60 hover:opacity-100 transition-opacity" />
+      <img src="/images/fem-logo.png" alt="FEM ロゴ" class="h-16 opacity-60 hover:opacity-100 transition-opacity" />
     </div>
   </div>
 </section>
