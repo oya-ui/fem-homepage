@@ -1,23 +1,12 @@
 ---
-// 実際の画像は src/assets/images/ に配置してください
-// ファイル名の例: machine-2025.jpg, race-2024.jpg など
-// Googleドライブから画像をダウンロード後、以下の配列に追加してください
-
-const placeholders = [
-  { label: 'マシン全景', aspect: 'wide' },
-  { label: 'コックピット', aspect: 'square' },
-  { label: 'レース中', aspect: 'square' },
-  { label: 'チーム集合', aspect: 'wide' },
-  { label: '製作風景', aspect: 'square' },
-  { label: '表彰式', aspect: 'square' },
+const images = [
+  { src: 'images/photo-1.jpg', alt: 'FEMマシン', wide: true },
+  { src: 'images/photo-2.jpg', alt: 'レース写真', wide: false },
+  { src: 'images/photo-3.jpg', alt: '大会当日', wide: false },
+  { src: 'images/photo-4.jpg', alt: 'チーム活動', wide: false },
+  { src: 'images/photo-5.jpg', alt: 'マシン詳細', wide: false },
+  { src: 'images/photo-6.png', alt: '活動風景', wide: true },
 ];
-
-// 実画像を追加する場合はこちら（コメントアウト解除）
-// import img1 from '../assets/images/machine-2025.jpg';
-// const images = [
-//   { src: img1, alt: '2025年マシン全景' },
-//   ...
-// ];
 ---
 
 <section id="gallery" class="py-24 sm:py-32 bg-fem-gray">
@@ -28,41 +17,28 @@ const placeholders = [
       <p class="text-fem-red text-xs font-bold tracking-[0.3em] uppercase mb-3">Gallery</p>
       <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">ギャラリー</h2>
       <div class="w-12 h-0.5 bg-fem-red mt-4"></div>
-      <p class="text-white/40 text-sm mt-4">
-        画像追加方法: Googleドライブから画像をダウンロードして <code class="text-white/60 bg-white/5 px-1.5 py-0.5 rounded text-xs">src/assets/images/</code> に配置してください
-      </p>
     </div>
 
     <!-- Gallery grid -->
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-      {placeholders.map((item, i) => (
+      {images.map((image) => (
         <div
-          class={`relative overflow-hidden bg-fem-dark border border-white/10 rounded-lg group cursor-pointer ${item.aspect === 'wide' && i === 0 ? 'col-span-2 md:col-span-2' : ''} ${item.aspect === 'wide' && i === 3 ? 'col-span-2 md:col-span-2' : ''}`}
+          class={`relative overflow-hidden rounded-lg group cursor-pointer bg-fem-dark ${image.wide ? 'col-span-2' : ''}`}
         >
-          <!-- Placeholder -->
-          <div class={`w-full flex items-center justify-center ${item.aspect === 'wide' ? 'aspect-video' : 'aspect-square'} bg-gradient-to-br from-white/[0.02] to-white/[0.05]`}>
-            <div class="text-center">
-              <svg class="w-8 h-8 text-white/20 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-              <span class="text-white/20 text-xs">{item.label}</span>
-            </div>
-          </div>
-
-          <!-- Hover overlay -->
-          <div class="absolute inset-0 bg-fem-red/0 group-hover:bg-fem-red/10 transition-colors duration-300"></div>
+          <img
+            src={image.src}
+            alt={image.alt}
+            class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${image.wide ? 'aspect-video' : 'aspect-square'}`}
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
         </div>
       ))}
     </div>
 
-    <!-- Note for image replacement -->
-    <div class="mt-8 border border-dashed border-white/10 rounded-lg p-6 text-center">
-      <p class="text-white/30 text-xs leading-relaxed">
-        実際の写真はGoogleドライブフォルダからダウンロードして<br />
-        <code class="text-white/50">src/assets/images/</code> に配置し、Gallery.astro の images 配列を更新してください。
-      </p>
+    <!-- FEM Logo -->
+    <div class="mt-12 flex justify-center">
+      <img src="images/fem-logo.png" alt="FEM ロゴ" class="h-16 opacity-60 hover:opacity-100 transition-opacity" />
     </div>
   </div>
 </section>

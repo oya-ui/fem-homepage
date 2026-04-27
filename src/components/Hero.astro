@@ -5,16 +5,18 @@
   id="top"
   class="relative min-h-screen flex items-center justify-center overflow-hidden bg-fem-dark"
 >
-  <!-- Background grid pattern -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
+  <!-- Banner background image -->
+  <div class="absolute inset-0">
+    <img
+      src="images/banner.jpg"
+      alt="FEM Formula Car"
+      class="w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-fem-dark"></div>
+  </div>
 
   <!-- Red accent line top -->
   <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-fem-red to-transparent"></div>
-
-  <!-- Large background FEM text -->
-  <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-    <span class="text-[20vw] font-black text-white/[0.02] tracking-widest uppercase leading-none">FEM</span>
-  </div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-16">
     <!-- Tag line -->
